@@ -2,32 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+/* BASE */
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #000;
+  min-height: 100%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* IMPORTANT: sections must not hide glow */
+section {
+  background: transparent !important;
+}
+
+/* ===== GLOW BASE ===== */
+.glow {
+  position: absolute;
+  width: 90vw;
+  height: 90vw;
+  border-radius: 50%;
+  filter: blur(320px);
+  opacity: 0.75;
+  animation: float 18s ease-in-out infinite alternate;
+}
+
+/* PURPLE GLOW */
+.glow-purple {
+  top: -40%;
+  left: -35%;
+  background: rgba(168, 85, 247, 0.55);
+}
+
+/* PINK GLOW */
+.glow-pink {
+  bottom: -40%;
+  right: -35%;
+  background: rgba(236, 72, 153, 0.45);
+  animation-delay: 6s;
+}
+
+/* FLOATING ANIMATION */
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px) scale(1);
   }
+
+  50% {
+    transform: translate(60px, -40px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-40px, 60px) scale(1.08);
+  }
+}
+
+/* GLASS UTILITY */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }

@@ -1,129 +1,128 @@
 "use client";
 
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-type Message = {
+type Msg = {
     role: "user" | "assistant";
-    content: string;
+    text: string;
 };
 
 export default function Zoyi() {
-    const [open, setOpen] = useState(true);
-    const [messages, setMessages] = useState<Message[]>([
-        {
-            role: "assistant",
-            content:
-                "Hi 👋 I’m Zoyi, nicks.create ki sales assistant. Batao kis type ka project chahiye?",
-        },
-    ]);
+    const [open, setOpen] = useState(false);
     const [input, setInput] = useState("");
-    const [typing, setTyping] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const sendMessage = async () => {
-        if (!input.trim() || typing) return;
+    const [messages, setMessages] = useState<Msg[]>([
+        { role: "assistant", text: "Hi 👋 I’m Zoyi. Aapko kis project me help chahiye?" },
+    ]);
 
-        const userMessage: Message = { role: "user", content: input };
-        const updatedMessages = [...messages, userMessage];
+    const bodyRef = useRef<HTMLDivElement | null>(null);
 
-        setMessages(updatedMessages);
+    useEffect(() => {
+        if (!bodyRef.current) return;
+        bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+    }, [messages, open]);
+
+    const send = async (text?: string) => {
+        const msg = (text ?? input).trim();
+        if (!msg || loading) return;
+
+        setMessages((prev) => [...prev, { role: "user", text: msg }]);
         setInput("");
-        setTyping(true);
+        setLoading(true);
 
         try {
             const res = await fetch("/api/chat/zoyi", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ messages: updatedMessages }),
+                body: JSON.stringify({ message: msg }),
             });
 
             const data = await res.json();
 
             setMessages((prev) => [
                 ...prev,
-                { role: "assistant", content: data.reply },
+                { role: "assistant", text: data?.reply || "Sorry, kuch issue ho gaya." },
             ]);
-        } catch {
+        } catch (e) {
             setMessages((prev) => [
                 ...prev,
-                {
-                    role: "assistant",
-                    content: "Please refresh once and try again.",
-                },
+                { role: "assistant", text: "Network issue 😅. Please try again." },
             ]);
         } finally {
-            setTyping(false);
+            setLoading(false);
         }
     };
 
     return (
-        <>
-            {!open && (
-                <button
-                    onClick={() => setOpen(true)}
-                    className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center"
-                >
-                    <Image src="/zoyi.png" alt="Zoyi" width={32} height={32} />
-                </button>
-            )}
+        <div className="fixed bottom-6 right-6 z-[9999]">
+            {/* Launcher */}
+            <button onClick={() => setOpen(!open)} className="zoyi-launcher">
+                <div className="zoyi-icon">
+                    <Image src="/zoyi.png" alt="Zoyi" width={34} height={34} priority />
+                </div>
+                <div className="zoyi-text">
+                    <div className="zoyi-title">Zoyi</div>
+                    <div className="zoyi-subtitle">Sales assistant</div>
+                </div>
+            </button>
 
+            {/* Chat Panel */}
             {open && (
-                <div className="fixed bottom-6 right-6 z-50 w-80 bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
-                    <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-                        <div className="flex items-center gap-3">
-                            <Image src="/zoyi.png" alt="Zoyi" width={32} height={32} />
-                            <div>
-                                <p className="text-sm font-medium text-white">Zoyi</p>
-                                <p className="text-xs text-white/60">Sales Assistant</p>
-                            </div>
+                <div className="zoyi-panel">
+                    <div className="zoyi-panel-header">
+                        <div className="flex items-center gap-2">
+                            <Image src="/zoyi.png" alt="Zoyi" width={22} height={22} />
+                            <span className="font-bold text-black/80">Zoyi</span>
                         </div>
-                        <button
-                            onClick={() => setOpen(false)}
-                            className="text-white/60 hover:text-white"
-                        >
+                        <button onClick={() => setOpen(false)} className="zoyi-close">
                             ✕
                         </button>
                     </div>
 
-                    <div className="h-64 overflow-y-auto px-4 py-3 space-y-3 text-sm">
-                        {messages.map((msg, i) => (
+                    <div ref={bodyRef} className="zoyi-panel-body-scroll">
+                        {messages.map((m, i) => (
                             <div
                                 key={i}
-                                className={
-                                    msg.role === "user"
-                                        ? "text-right text-white"
-                                        : "text-left text-white/80"
-                                }
+                                className={`zoyi-msg ${m.role === "user" ? "zoyi-user" : "zoyi-ai"
+                                    }`}
                             >
-                                <span className="inline-block px-3 py-2 rounded-xl bg-white/10">
-                                    {msg.content}
-                                </span>
+                                {m.text}
                             </div>
                         ))}
-                        {typing && (
-                            <div className="text-left text-white/50 text-xs">
-                                Zoyi is typing…
-                            </div>
-                        )}
+
+                        {loading && <div className="zoyi-msg zoyi-ai">Typing...</div>}
                     </div>
 
-                    <div className="flex items-center gap-2 p-3 border-t border-white/10">
+                    <div className="zoyi-panel-input">
                         <input
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-                            placeholder="Type your message…"
-                            className="flex-1 bg-transparent text-white text-sm outline-none"
+                            placeholder="Type message..."
+                            className="zoyi-input"
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") send();
+                            }}
                         />
-                        <button
-                            onClick={sendMessage}
-                            className="text-sm px-3 py-1 rounded-full bg-white text-black"
-                        >
-                            Send
+                        <button onClick={() => send()} className="zoyi-send">
+                            ➤
+                        </button>
+                    </div>
+
+                    <div className="zoyi-quick">
+                        <button onClick={() => send("pricing")} className="zoyi-chip">
+                            Pricing
+                        </button>
+                        <button onClick={() => send("services")} className="zoyi-chip">
+                            Services
+                        </button>
+                        <button onClick={() => send("book a call")} className="zoyi-chip">
+                            Book Call
                         </button>
                     </div>
                 </div>
             )}
-        </>
+        </div>
     );
 }

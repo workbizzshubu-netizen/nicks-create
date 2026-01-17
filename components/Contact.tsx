@@ -1,96 +1,75 @@
 "use client";
+import React from "react";
 
 export default function Contact() {
     return (
-        <section
-            id="contact"
-            className="relative min-h-screen flex items-center justify-center px-6"
-        >
-            {/* Contact Glow */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute left-[-20%] top-[20%] w-[500px] h-[500px] bg-purple-500/25 rounded-full blur-[180px]" />
-                <div className="absolute right-[-20%] bottom-[10%] w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-[180px]" />
-            </div>
+        <section id="contact" className="py-24 px-6">
+            <div className="max-w-6xl mx-auto">
+                <div className="glass-card p-10 md:p-14">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+                        {/* LEFT */}
+                        <div>
+                            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-black/85">
+                                Let’s{" "}
+                                <span className="theme-gradient-text font-black">Begin</span>
+                            </h2>
 
-            <div className="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+                            <div className="mt-12 space-y-10">
+                                {/* item 1 */}
+                                <div className="flex gap-6">
+                                    <div className="step-badge">1</div>
+                                    <p className="text-lg md:text-xl text-black/60 leading-relaxed">
+                                        Tell us what keeps you up at night.{" "}
+                                        <span className="text-black/80 font-bold">
+                                            We turn that into your unfair advantage.
+                                        </span>
+                                    </p>
+                                </div>
 
-                {/* LEFT CONTENT */}
-                <div>
-                    <h2 className="text-4xl md:text-5xl font-semibold mb-10">
-                        Let’s{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-400">
-                            Begin
-                        </span>
-                    </h2>
+                                {/* item 2 */}
+                                <div className="flex gap-6">
+                                    <div className="step-badge">2</div>
+                                    <p className="text-lg md:text-xl text-black/60 leading-relaxed">
+                                        Get a battle plan, not a proposal.{" "}
+                                        <span className="text-black/80 font-bold">
+                                            Custom strategy built for you.
+                                        </span>
+                                    </p>
+                                </div>
 
-                    <div className="space-y-8 text-white/70">
-                        <div className="flex gap-4">
-                            <span className="w-8 h-8 rounded-full border border-lime-400 text-lime-400 flex items-center justify-center">
-                                1
-                            </span>
-                            <p>
-                                Tell us what keeps you up at night.{" "}
-                                <strong className="text-white">
-                                    We turn that into your unfair advantage.
-                                </strong>
-                            </p>
+                                {/* item 3 */}
+                                <div className="flex gap-6">
+                                    <div className="step-badge">3</div>
+                                    <p className="text-lg md:text-xl text-black/60 leading-relaxed">
+                                        Watch your business transform while competitors wonder what
+                                        happened.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="flex gap-4">
-                            <span className="w-8 h-8 rounded-full border border-lime-400 text-lime-400 flex items-center justify-center">
-                                2
-                            </span>
-                            <p>
-                                Get a battle plan, not a proposal.{" "}
-                                <strong className="text-white">
-                                    Custom strategy built for you.
-                                </strong>
-                            </p>
-                        </div>
+                        {/* RIGHT FORM */}
+                        <div className="form-panel">
+                            <form className="space-y-6">
+                                <input className="form-input" placeholder="Name" />
+                                <input className="form-input" placeholder="Phone Number" />
+                                <input className="form-input" placeholder="Email" />
 
-                        <div className="flex gap-4">
-                            <span className="w-8 h-8 rounded-full border border-lime-400 text-lime-400 flex items-center justify-center">
-                                3
-                            </span>
-                            <p>
-                                Watch your business transform{" "}
-                                <strong className="text-white">
-                                    while competitors wonder what happened.
-                                </strong>
-                            </p>
+                                <select className="form-input">
+                                    <option>Select a solution</option>
+                                    <option>Reels / Shorts Editing</option>
+                                    <option>YouTube Editing</option>
+                                    <option>Motion Graphics</option>
+                                    <option>Brand Video</option>
+                                    <option>Monthly Retainer</option>
+                                </select>
+
+                                <button type="submit" className="submit-btn">
+                                    SUBMIT
+                                </button>
+                            </form>
                         </div>
                     </div>
-                </div>
-
-                {/* RIGHT FORM */}
-                <div className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-10">
-                    <form className="space-y-5">
-                        <input
-                            placeholder="Name"
-                            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-lime-400"
-                        />
-
-                        <input
-                            placeholder="Phone Number"
-                            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-lime-400"
-                        />
-
-                        <input
-                            placeholder="Email"
-                            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-lime-400"
-                        />
-
-                        <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 outline-none text-white/70 focus:border-lime-400">
-                            <option>Select a solution</option>
-                            <option>Video Editing</option>
-                            <option>Motion Graphics</option>
-                            <option>Brand Design</option>
-                        </select>
-
-                        <button className="w-full py-4 rounded-full bg-lime-400 text-black font-semibold hover:opacity-90 transition">
-                            SUBMIT
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>

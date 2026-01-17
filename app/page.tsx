@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/about";
 import Portfolio from "@/components/Portfolio";
 import Testimonial from "@/components/testimonial";
-import Contact from "@/components/contact";
+import Contact from "@/components/Contact";
 import Footer from "@/components/footer";
 import Chatbot from "@/components/chatbot";
 import Zoyi from "@/components/Zoyi";

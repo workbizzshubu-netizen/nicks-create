@@ -101,7 +101,7 @@ export default function Showreel() {
                         onLoadedMetadata={() => setDuration(videoRef.current?.duration || 0)}
                         playsInline
                     >
-                        <source src="/showreel/showreel.mp4" type="video/mp4" />
+                        <source src="/showreel/Showreel.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
 

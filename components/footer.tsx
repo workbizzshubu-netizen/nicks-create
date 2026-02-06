@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -6,8 +7,19 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto">
                 <div className="grid md:grid-cols-4 gap-12 mb-16">
                     <div>
-                        <div className="text-2xl font-bold gradient-text mb-4">nicks.create</div>
-                        <p className="text-white/40 text-sm">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-12 h-12 rounded-full overflow-hidden border border-black/10">
+                                <Image
+                                    src="/logo.jpg"
+                                    alt="nicks.create logo"
+                                    width={48}
+                                    height={48}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="text-2xl font-bold gradient-text">nicks.create</div>
+                        </div>
+                        <p className="text-black/40 text-sm">
                             Professional video editing and motion design services
                         </p>
                     </div>

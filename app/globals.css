@@ -671,3 +671,176 @@ h6 {
   color: rgba(30, 25, 45, 0.55);
   line-height: 1.5;
 }
+
+/* ================= MARQUEE (AUTO SCROLL) ================= */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 6px 0;
+  -webkit-mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%);
+  mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: marqueeMove var(--duration, 24s) linear infinite;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ================= LOGO PILLS ================= */
+
+.logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 55px rgba(95, 60, 170, 0.12);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.logo-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 30px 85px rgba(95, 60, 170, 0.18);
+}
+
+.logo-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg,
+      rgba(167, 139, 250, 0.35),
+      rgba(255, 134, 204, 0.25),
+      rgba(255, 200, 138, 0.25));
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.logo-img {
+  filter: saturate(1.2);
+}
+
+.logo-text {
+  font-weight: 900;
+  font-size: 13px;
+  color: rgba(30, 25, 45, 0.70);
+  letter-spacing: 0.01em;
+}
+
+.worked-title {
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(30, 25, 45, 0.55);
+}
+
+/* ================= CELEBRITIES SECTION ================= */
+
+.celebrity-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 24px 70px rgba(95, 60, 170, 0.14);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.celebrity-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 36px 100px rgba(95, 60, 170, 0.20);
+}
+
+.celebrity-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  background: linear-gradient(135deg,
+      rgba(167, 139, 250, 0.40),
+      rgba(255, 134, 204, 0.35),
+      rgba(255, 200, 138, 0.30));
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 16px 45px rgba(95, 60, 170, 0.12);
+
+  transition: transform 0.3s ease;
+}
+
+.celebrity-card:hover .celebrity-avatar {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.celebrity-project-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  color: rgba(30, 25, 45, 0.65);
+
+  box-shadow: 0 12px 35px rgba(95, 60, 170, 0.08);
+}
+
+.celebrity-accent {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  border-radius: 999px;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, #a78bfa, #ff86cc, #ffc88a, transparent);
+  transition: opacity 0.3s ease;
+}
+
+.celebrity-card:hover .celebrity-accent {
+  opacity: 0.7;
+}

@@ -7,13 +7,13 @@ export default function Navbar() {
             <div className="max-w-4xl mx-auto glass nav-shell">
 
                 {/* Left Icon (custom) */}
-                <button className="nav-icon">
+                <button className="nav-icon overflow-hidden">
                     <Image
-                        src="/myicon.png"
-                        alt="Icon"
-                        width={22}
-                        height={22}
-                        className="opacity-80"
+                        src="/logo.jpg"
+                        alt="nicks.create logo"
+                        width={52}
+                        height={52}
+                        className="w-full h-full object-cover"
                     />
                 </button>
 

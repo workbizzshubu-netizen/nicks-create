@@ -60,12 +60,21 @@ Always end with: "Aap kis type ka project kar rahe ho?"
 
         const data = await res.json();
 
+        if (!res.ok) {
+            console.error("OpenAI API Error:", data);
+            return NextResponse.json(
+                { error: "OpenAI API returned an error", detail: data?.error?.message || "Unknown error" },
+                { status: res.status }
+            );
+        }
+
         const reply =
             data?.choices?.[0]?.message?.content ??
             "Sorry, mujhe samajh nahi aaya. Aap apna project explain kar sakte ho?";
 
         return NextResponse.json({ reply });
     } catch (err) {
+        console.error("Zoyi Chat Error:", err);
         return NextResponse.json(
             { error: "Server error", detail: String(err) },
             { status: 500 }

@@ -9,6 +9,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/footer";
 import Chatbot from "@/components/chatbot";
 import Zoyi from "@/components/Zoyi";
+import Celebrities from "@/components/Celebrities";
+import Showreel from "@/components/Showreel";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Celebrities />
+      <Showreel />
       <Portfolio />
       <Testimonial />
       <Contact />

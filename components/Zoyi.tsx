@@ -98,7 +98,7 @@ export default function Zoyi() {
                     <Image src="/zoyi.png" alt="Zoyi" width={38} height={38} priority className="object-cover" />
                 </div>
                 {!open && (
-                    <div className="pr-4 text-left">
+                    <div className="hidden md:block pr-4 text-left">
                         <div className="font-black text-sm text-black/85 leading-none mb-1">Zoyi</div>
                         <div className="text-[11px] text-black/50 font-medium">Sales Assistant</div>
                     </div>

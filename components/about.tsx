@@ -6,7 +6,7 @@ export default function About() {
         <section id="about" className="py-24 px-6">
             <div className="max-w-6xl mx-auto">
                 {/* Wrapper */}
-                <div className="p-10 md:p-14">
+                <div className="p-6 md:p-14">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         {/* LEFT */}
                         <div>

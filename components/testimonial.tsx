@@ -32,7 +32,7 @@ export default function Testimonial() {
                     {testimonials.map((t) => (
                         <div
                             key={t.id}
-                            className="bg-white/40 backdrop-blur-md rounded-[32px] p-4 border border-white/60 shadow-xl overflow-hidden group hover:scale-[1.02] transition-all duration-300 flex flex-col items-center justify-center min-h-[400px]"
+                            className="bg-white/40 backdrop-blur-md rounded-[32px] p-4 border border-white/60 shadow-xl overflow-hidden group hover:scale-[1.02] transition-all duration-300 flex flex-col items-center justify-center min-h-[300px] md:min-h-[400px]"
                         >
                             <div className="w-full h-full rounded-[24px] overflow-hidden bg-white/20 relative flex items-center justify-center">
                                 <img

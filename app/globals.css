@@ -208,6 +208,14 @@ footer {
   gap: 14px;
 }
 
+@media (max-width: 768px) {
+  .nav-shell {
+    height: 64px;
+    padding: 8px;
+    gap: 8px;
+  }
+}
+
 .nav-icon {
   width: 52px;
   height: 52px;
@@ -219,6 +227,13 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.88);
   box-shadow: 0 18px 45px rgba(95, 60, 170, 0.12);
   color: rgba(30, 25, 45, 0.75);
+}
+
+@media (max-width: 768px) {
+  .nav-icon {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 .nav-center {
@@ -233,6 +248,12 @@ footer {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.92);
   box-shadow: 0 22px 55px rgba(95, 60, 170, 0.16);
+}
+
+@media (max-width: 768px) {
+  .nav-center {
+    height: 44px;
+  }
 }
 
 /* ================= HERO TEXT LOOK ================= */
@@ -250,9 +271,11 @@ footer {
 
 /* ================= CUSTOM GLASS CURSOR ================= */
 
-/* Hide system cursor */
-* {
-  cursor: none;
+/* Hide system cursor only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none;
+  }
 }
 
 .custom-cursor {
@@ -274,6 +297,14 @@ footer {
   filter: blur(14px);
   transform: translate(-50%, -50%);
   transition: transform 0.08s linear;
+  display: none;
+  /* Hidden by default for mobile */
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    display: block;
+  }
 }
 
 .custom-cursor-inner {
@@ -298,6 +329,14 @@ footer {
 
   transform: translate(-50%, -50%);
   transition: transform 0.06s linear;
+  display: none;
+  /* Hidden by default for mobile */
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-inner {
+    display: block;
+  }
 }
 
 /* ================= ZOYI CHATBOT ================= */

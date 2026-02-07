@@ -175,19 +175,19 @@ export default function Showreel() {
                     </AnimatePresence>
                 </div>
 
-                <div className="mt-12 text-center">
-                    <div className="inline-flex items-center gap-8 py-4 px-8 bg-black/5 rounded-full backdrop-blur-sm border border-black/5">
-                        <div className="text-center">
+                <div className="mt-8 md:mt-12 text-center px-4 w-full">
+                    <div className="inline-flex flex-col md:flex-row items-center gap-6 md:gap-8 py-6 md:py-4 px-8 bg-black/5 rounded-3xl md:rounded-full backdrop-blur-sm border border-black/5 w-full md:w-auto">
+                        <div className="text-center w-full md:w-auto">
                             <div className="text-2xl font-black text-black/85">100+</div>
                             <div className="text-xs uppercase tracking-widest text-black/40 font-bold">Projects</div>
                         </div>
-                        <div className="w-px h-8 bg-black/10"></div>
-                        <div className="text-center">
+                        <div className="w-full h-px md:w-px md:h-8 bg-black/10 my-2 md:my-0"></div>
+                        <div className="text-center w-full md:w-auto">
                             <div className="text-2xl font-black text-black/85">20+</div>
                             <div className="text-xs uppercase tracking-widest text-black/40 font-bold whitespace-nowrap">Creators & Brands</div>
                         </div>
-                        <div className="w-px h-8 bg-black/10"></div>
-                        <div className="text-center">
+                        <div className="w-full h-px md:w-px md:h-8 bg-black/10 my-2 md:my-0"></div>
+                        <div className="text-center w-full md:w-auto">
                             <div className="text-2xl font-black text-black/85">10M+</div>
                             <div className="text-xs uppercase tracking-widest text-black/40 font-bold">Views</div>
                         </div>

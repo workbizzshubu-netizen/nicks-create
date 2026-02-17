@@ -7,6 +7,7 @@ const portfolioVideos = [
     { id: 1, src: "/portfolio/video1.mp4" },
     { id: 2, src: "/portfolio/video2.mp4" },
     { id: 3, src: "/portfolio/video3.mp4" },
+    { id: 4, src: "/portfolio/video4.mp4" },
 ];
 
 export default function Portfolio() {

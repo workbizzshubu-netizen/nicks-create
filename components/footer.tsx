@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -45,17 +46,31 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="text-sm uppercase tracking-widest text-black/60 mb-6 font-bold">Follow</h4>
-                        <ul className="space-y-3 text-black/50">
-                            <li><a href="#" className="hover:text-black transition-colors">Instagram</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">YouTube</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">LinkedIn</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">Twitter</a></li>
-                        </ul>
+                        <h4 className="text-[10px] uppercase tracking-[0.3em] text-black/40 mb-8 font-black">Follow</h4>
+                        <div className="flex gap-4">
+                            <a
+                                href="https://www.instagram.com/create.nicks/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-12 h-12 rounded-2xl bg-black/5 hover:bg-apple-accent hover:text-white flex items-center justify-center transition-all duration-300 group shadow-sm hover:shadow-lg hover:shadow-apple-accent/20"
+                                aria-label="Instagram"
+                            >
+                                <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            </a>
+                            <a
+                                href="https://wa.me/917900509667"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-12 h-12 rounded-2xl bg-black/5 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-300 group shadow-sm hover:shadow-lg hover:shadow-green-500/20"
+                                aria-label="WhatsApp"
+                            >
+                                <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-sm text-black/40">
+                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/5 text-[10px] font-bold uppercase tracking-widest text-black/30">
                     <p>© 2024 nicks.create. All rights reserved.</p>
                     <a href="#" className="hover:text-black transition-colors mt-4 md:mt-0">Privacy Policy</a>
                 </div>

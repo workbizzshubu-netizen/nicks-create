@@ -129,8 +129,8 @@ export default function Zoyi() {
                                     </div>
                                 </div>
                             </div>
-                            <button onClick={() => setOpen(false)} className="w-9 h-9 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors">
-                                <span className="text-black/50 text-xl">✕</span>
+                            <button onClick={() => setOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors">
+                                <span className="text-black/80 font-bold">✕</span>
                             </button>
                         </div>
 
@@ -141,27 +141,29 @@ export default function Zoyi() {
                                     initial={{ opacity: 0, x: m.role === "user" ? 20 : -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     key={i}
-                                    className={`p-4 rounded-[22px] max-w-[85%] text-[14px] leading-relaxed relative ${m.role === "user"
-                                        ? "bg-black/85 text-white ml-auto rounded-tr-none shadow-lg shadow-black/10"
-                                        : "bg-white/90 text-black/80 mr-auto rounded-tl-none border border-white shadow-sm"
+                                    className={`p-4 rounded-[24px] max-w-[85%] text-[14px] font-medium leading-relaxed relative shadow-md ${m.role === "user"
+                                        ? "bg-[#1D1D1F] text-white ml-auto rounded-tr-none"
+                                        : "bg-white text-[#1D1D1F] mr-auto rounded-tl-none border border-[#F5F5F7]"
                                         }`}
                                 >
-                                    {m.text.split(/(\bhttps?:\/\/\S+)/g).map((part, index) => (
-                                        part.match(/^https?:\/\/\S+$/) ? (
-                                            <a
-                                                key={index}
-                                                href={part}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-purple-600 font-bold underline break-all hover:text-pink-500 transition-colors"
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                {part.includes("wa.me") ? "Click here to chat on WhatsApp" : part}
-                                            </a>
-                                        ) : (
-                                            <span key={index} className="whitespace-pre-wrap">{part}</span>
-                                        )
-                                    ))}
+                                    <div style={{ color: m.role === "user" ? "#FFFFFF" : "#1D1D1F" }}>
+                                        {m.text.split(/(\bhttps?:\/\/\S+)/g).map((part, index) => (
+                                            part.match(/^https?:\/\/\S+$/) ? (
+                                                <a
+                                                    key={index}
+                                                    href={part}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={`${m.role === "user" ? "text-white/90 underline" : "text-apple-accent"} font-bold break-all hover:opacity-80 transition-opacity`}
+                                                    onClick={(e) => e.stopPropagation()}
+                                                >
+                                                    {part.includes("wa.me") ? "Click here to chat on WhatsApp" : part}
+                                                </a>
+                                            ) : (
+                                                <span key={index} className="whitespace-pre-wrap">{part}</span>
+                                            )
+                                        ))}
+                                    </div>
                                 </motion.div>
                             ))}
 
@@ -184,7 +186,7 @@ export default function Zoyi() {
                                 <button
                                     key={text}
                                     onClick={() => send(text)}
-                                    className="px-4 py-2 rounded-full bg-white/80 border border-white/50 text-[11px] font-black text-black/60 hover:bg-black/5 transition-colors shadow-sm"
+                                    className="px-5 py-2.5 rounded-full bg-white border border-black/10 text-[11px] font-bold text-black hover:bg-black hover:text-white transition-all shadow-sm active:scale-95"
                                 >
                                     {text}
                                 </button>

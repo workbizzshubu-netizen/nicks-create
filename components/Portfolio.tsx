@@ -1,4 +1,5 @@
 "use client";
+import VideoCarousel from "./VideoCarousel"
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -22,7 +23,7 @@ export default function Portfolio() {
     };
 
     return (
-        <section id="portfolio" className="py-24 px-6 overflow-hidden relative">
+        <section id="work" className="py-24 px-6 overflow-hidden relative">
             {/* Top Badge */}
             <div className="flex flex-col items-center mb-12">
                 <div className="flex items-center gap-2 mb-4">
@@ -40,40 +41,16 @@ export default function Portfolio() {
                 <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 md:px-12 z-50 pointer-events-none">
                     <button
                         onClick={prev}
-                        className="w-[52px] h-[52px] rounded-full flex items-center justify-center pointer-events-auto transition-all duration-300 hover:scale-110 active:scale-95 group relative"
-                        style={{
-                            background: "rgba(255, 255, 255, 0.85)",
-                            backdropFilter: "blur(12px)",
-                            WebkitBackdropFilter: "blur(12px)",
-                            boxShadow: "0 20px 50px rgba(167, 139, 250, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.8)",
-                        }}
+                        className="w-12 h-12 rounded-full flex items-center justify-center pointer-events-auto transition-all duration-300 hover:scale-110 active:scale-95 bg-apple-surface border border-apple-border shadow-sm"
                     >
-                        {/* Outer Glow on Hover */}
-                        <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity blur-xl z-[-1]"
-                            style={{ background: "radial-gradient(circle, rgba(167, 139, 250, 0.4), rgba(255, 134, 204, 0.3), transparent 70%)" }}></div>
-
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="rotate-180">
-                            <path d="M4 3L20 12L4 21L7 12L4 3Z" fill="#1e192d" />
-                        </svg>
+                        <ChevronLeft className="w-6 h-6 text-apple-text" />
                     </button>
 
                     <button
                         onClick={next}
-                        className="w-[52px] h-[52px] rounded-full flex items-center justify-center pointer-events-auto transition-all duration-300 hover:scale-110 active:scale-95 group relative"
-                        style={{
-                            background: "rgba(255, 255, 255, 0.85)",
-                            backdropFilter: "blur(12px)",
-                            WebkitBackdropFilter: "blur(12px)",
-                            boxShadow: "0 20px 50px rgba(167, 139, 250, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.8)",
-                        }}
+                        className="w-12 h-12 rounded-full flex items-center justify-center pointer-events-auto transition-all duration-300 hover:scale-110 active:scale-95 bg-apple-surface border border-apple-border shadow-sm"
                     >
-                        {/* Outer Glow on Hover */}
-                        <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity blur-xl z-[-1]"
-                            style={{ background: "radial-gradient(circle, rgba(167, 139, 250, 0.4), rgba(255, 134, 204, 0.3), transparent 70%)" }}></div>
-
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 3L20 12L4 21L7 12L4 3Z" fill="#1e192d" />
-                        </svg>
+                        <ChevronRight className="w-6 h-6 text-apple-text" />
                     </button>
                 </div>
 

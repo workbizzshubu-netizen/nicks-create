@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/about";
 import Portfolio from "@/components/Portfolio";
+import Pricing from "@/components/Pricing";
 import Testimonial from "@/components/testimonial";
 import Contact from "@/components/Contact";
 import Footer from "@/components/footer";
@@ -21,6 +22,7 @@ export default function Home() {
       <Celebrities />
       <Showreel />
       <Portfolio />
+      <Pricing />
       <Testimonial />
       <Contact />
       <Footer />

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Menu, Instagram, MessageCircle } from "lucide-react";
 
 export default function Navbar() {
     return (
@@ -8,7 +9,7 @@ export default function Navbar() {
 
                 {/* Left Icon (menu) */}
                 <button className="nav-icon">
-                    <span className="text-xl">☰</span>
+                    <Menu className="w-5 h-5 text-black/70" />
                 </button>
 
                 {/* Center pill with Logo and Text */}
@@ -29,10 +30,26 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {/* Right icons */}
+                {/* Right icons (Socials) */}
                 <div className="flex items-center gap-2">
-                    <button className="nav-icon text-lg">▦</button>
-                    <button className="nav-icon text-lg">👤</button>
+                    <a
+                        href="https://www.instagram.com/create.nicks/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-icon hover:text-apple-accent transition-colors"
+                        aria-label="Instagram"
+                    >
+                        <Instagram className="w-5 h-5" />
+                    </a>
+                    <a
+                        href="https://wa.me/917900509667"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-icon hover:text-green-500 transition-colors"
+                        aria-label="WhatsApp"
+                    >
+                        <MessageCircle className="w-5 h-5" />
+                    </a>
                 </div>
             </div>
         </header>

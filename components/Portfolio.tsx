@@ -3,6 +3,7 @@ import VideoCarousel from "./VideoCarousel"
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const portfolioVideos = [
     { id: 1, src: "/portfolio/video1.mp4" },
@@ -25,15 +26,17 @@ export default function Portfolio() {
     return (
         <section id="work" className="py-24 px-6 overflow-hidden relative">
             {/* Top Badge */}
-            <div className="flex flex-col items-center mb-12">
-                <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                    <span className="text-black/40 uppercase tracking-[0.2em] font-bold text-xs">Work</span>
+            <ScrollReveal direction="up" delay={0} distance={25}>
+                <div className="flex flex-col items-center mb-12">
+                    <div className="flex items-center gap-2 mb-4">
+                        <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                        <span className="text-black/40 uppercase tracking-[0.2em] font-bold text-xs">Work</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-black tracking-tight text-center text-black/85 max-w-2xl leading-tight">
+                        Explore our <span className="theme-gradient-text">video editing</span> work and projects
+                    </h2>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black tracking-tight text-center text-black/85 max-w-2xl leading-tight">
-                    Explore our <span className="theme-gradient-text">video editing</span> work and projects
-                </h2>
-            </div>
+            </ScrollReveal>
 
             {/* Carousel Container */}
             <div className="relative h-[650px] flex items-center justify-center max-w-7xl mx-auto">

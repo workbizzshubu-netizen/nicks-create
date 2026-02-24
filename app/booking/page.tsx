@@ -127,21 +127,63 @@ function BookingContent() {
                         </p>
                     </div>
 
-                    <form className="max-w-md mx-auto space-y-6">
+                    <form
+                        className="max-w-md mx-auto space-y-6"
+                        onSubmit={async (e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.currentTarget);
+                            const data = {
+                                name: formData.get("name"),
+                                email: formData.get("email"),
+                                phoneNumber: "Waitlist Lead",
+                                solution: `Waitlist: ${plan}`
+                            };
+
+                            const btn = e.currentTarget.querySelector("button");
+                            if (btn) {
+                                btn.disabled = true;
+                                btn.innerText = "Processing...";
+                            }
+
+                            try {
+                                const res = await fetch("/api/enquiry", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify(data),
+                                });
+
+                                if (res.ok) {
+                                    alert("You've been added to the waitlist!");
+                                    (e.target as HTMLFormElement).reset();
+                                }
+                            } catch (err) {
+                                alert("Something went wrong.");
+                            } finally {
+                                if (btn) {
+                                    btn.disabled = false;
+                                    btn.innerText = "Join Waitlist";
+                                }
+                            }
+                        }}
+                    >
                         <div className="text-left">
                             <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-apple-text/30 dark:text-dark-text/40 ml-2 mb-3 block">Name</label>
                             <input
+                                name="name"
                                 type="text"
                                 placeholder="Jane Smith"
                                 className="w-full bg-apple-bg dark:bg-dark-bg border border-apple-border dark:border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-apple-accent transition-colors text-apple-text dark:text-dark-text placeholder:text-apple-text/20 dark:placeholder:text-dark-text/20"
+                                required
                             />
                         </div>
                         <div className="text-left">
                             <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-apple-text/30 dark:text-dark-text/40 ml-2 mb-3 block">Email</label>
                             <input
+                                name="email"
                                 type="email"
                                 placeholder="jane@example.com"
                                 className="w-full bg-apple-bg dark:bg-dark-bg border border-apple-border dark:border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-apple-accent transition-colors text-apple-text dark:text-dark-text placeholder:text-apple-text/20 dark:placeholder:text-dark-text/20"
+                                required
                             />
                         </div>
                         <button type="submit" className="w-full py-5 rounded-full bg-apple-text dark:bg-dark-text text-apple-bg dark:text-dark-bg font-bold hover:opacity-90 transition-all hover:scale-[1.02] mt-4 shadow-xl shadow-black/10">

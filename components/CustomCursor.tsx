@@ -1,32 +1,56 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function CustomCursor() {
+    const cursorRef = useRef<HTMLDivElement>(null);
+    const innerRef = useRef<HTMLDivElement>(null);
+    const posRef = useRef({ x: 0, y: 0 });
+    const currentRef = useRef({ x: 0, y: 0 });
+    const innerCurrentRef = useRef({ x: 0, y: 0 });
+    const rafRef = useRef<number>(0);
+
     useEffect(() => {
-        const cursor = document.querySelector(".custom-cursor") as HTMLDivElement;
-        const cursorInner = document.querySelector(
-            ".custom-cursor-inner"
-        ) as HTMLDivElement;
+        const cursor = cursorRef.current;
+        const inner = innerRef.current;
+        if (!cursor || !inner) return;
 
-        if (!cursor || !cursorInner) return;
-
-        const move = (e: MouseEvent) => {
-            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-            cursorInner.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        const onMove = (e: MouseEvent) => {
+            posRef.current = { x: e.clientX, y: e.clientY };
         };
 
-        window.addEventListener("mousemove", move);
+        // Smooth lerp animation loop
+        const animate = () => {
+            const lerpOuter = 0.12; // Outer glow follows slower
+            const lerpInner = 0.25; // Inner dot follows faster
 
-        return () => window.removeEventListener("mousemove", move);
+            currentRef.current.x += (posRef.current.x - currentRef.current.x) * lerpOuter;
+            currentRef.current.y += (posRef.current.y - currentRef.current.y) * lerpOuter;
+
+            innerCurrentRef.current.x += (posRef.current.x - innerCurrentRef.current.x) * lerpInner;
+            innerCurrentRef.current.y += (posRef.current.y - innerCurrentRef.current.y) * lerpInner;
+
+            cursor.style.transform = `translate3d(${currentRef.current.x}px, ${currentRef.current.y}px, 0)`;
+            inner.style.transform = `translate3d(${innerCurrentRef.current.x}px, ${innerCurrentRef.current.y}px, 0)`;
+
+            rafRef.current = requestAnimationFrame(animate);
+        };
+
+        window.addEventListener("mousemove", onMove);
+        rafRef.current = requestAnimationFrame(animate);
+
+        return () => {
+            window.removeEventListener("mousemove", onMove);
+            cancelAnimationFrame(rafRef.current);
+        };
     }, []);
 
     return (
         <>
             {/* outer glow */}
-            <div className="custom-cursor" />
+            <div ref={cursorRef} className="custom-cursor" />
 
             {/* arrow */}
-            <div className="custom-cursor-inner">
+            <div ref={innerRef} className="custom-cursor-inner">
                 <svg
                     width="26"
                     height="26"

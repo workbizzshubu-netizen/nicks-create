@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Sparkles, Zap, Timer, Play, CheckCircle2 } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 export default function About() {
     return (
@@ -11,109 +14,113 @@ export default function About() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         {/* LEFT: Logo and Intro */}
                         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-apple-accent/20 bg-white shadow-2xl shadow-apple-accent/10 mb-10 group hover:scale-105 transition-transform duration-500">
-                                <Image
-                                    src="/logo.jpg"
-                                    alt="nicks.create logo"
-                                    width={100}
-                                    height={100}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-
-                            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-tight">
-                                About <br />
-                                <span className="text-apple-accent">nicks.create</span>
-                            </h2>
-
-                            <p className="mt-8 text-xl text-black/70 leading-relaxed max-w-lg font-medium">
-                                I’m a <span className="text-black font-extrabold underline decoration-apple-accent/30 decoration-4 underline-offset-4">Video Editor & Motion Designer</span> focused on creating premium edits that hold attention and convert viewers into customers.
-                            </p>
-
-                            <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-4">
-                                <div className="flex items-center gap-2 bg-black/5 px-4 py-2 rounded-full border border-black/5">
-                                    <CheckCircle2 className="w-4 h-4 text-apple-accent" />
-                                    <span className="text-sm font-bold text-black/60 uppercase tracking-widest">Premium Quality</span>
+                            <ScrollReveal direction="up" delay={0} distance={30}>
+                                <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-apple-accent/20 bg-white shadow-2xl shadow-apple-accent/10 mb-10 group hover:scale-105 transition-transform duration-500">
+                                    <Image
+                                        src="/logo.jpg"
+                                        alt="nicks.create logo"
+                                        width={100}
+                                        height={100}
+                                        className="w-full h-full object-cover"
+                                    />
                                 </div>
-                                <div className="flex items-center gap-2 bg-black/5 px-4 py-2 rounded-full border border-black/5">
-                                    <Zap className="w-4 h-4 text-apple-accent" />
-                                    <span className="text-sm font-bold text-black/60 uppercase tracking-widest">Fast Delivery</span>
-                                </div>
-                            </div>
+                            </ScrollReveal>
 
-                            <div className="mt-12 flex gap-6">
-                                <a href="#work" className="btn btn-ask px-10 py-4 shadow-xl shadow-apple-accent/20">
-                                    View Portfolio
-                                </a>
-                                <a href="/booking" className="btn btn-glass px-10 py-4">
-                                    Start Project
-                                </a>
-                            </div>
+                            <ScrollReveal direction="up" delay={100} distance={30}>
+                                <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-tight">
+                                    About <br />
+                                    <span className="text-apple-accent">nicks.create</span>
+                                </h2>
+                            </ScrollReveal>
+
+                            <ScrollReveal direction="up" delay={200} distance={25}>
+                                <p className="mt-8 text-xl text-black/70 leading-relaxed max-w-lg font-medium">
+                                    I'm a <span className="text-black font-extrabold underline decoration-apple-accent/30 decoration-4 underline-offset-4">Video Editor & Motion Designer</span> focused on creating premium edits that hold attention and convert viewers into customers.
+                                </p>
+                            </ScrollReveal>
+
+                            <ScrollReveal direction="up" delay={300} distance={20}>
+                                <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-4">
+                                    <div className="flex items-center gap-2 bg-black/5 px-4 py-2 rounded-full border border-black/5">
+                                        <CheckCircle2 className="w-4 h-4 text-apple-accent" />
+                                        <span className="text-sm font-bold text-black/60 uppercase tracking-widest">Premium Quality</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-black/5 px-4 py-2 rounded-full border border-black/5">
+                                        <Zap className="w-4 h-4 text-apple-accent" />
+                                        <span className="text-sm font-bold text-black/60 uppercase tracking-widest">Fast Delivery</span>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+
+                            <ScrollReveal direction="up" delay={400} distance={20}>
+                                <div className="mt-12 flex gap-6">
+                                    <a href="#work" className="btn btn-ask px-10 py-4 shadow-xl shadow-apple-accent/20">
+                                        View Portfolio
+                                    </a>
+                                    <a href="/booking" className="btn btn-glass px-10 py-4">
+                                        Start Project
+                                    </a>
+                                </div>
+                            </ScrollReveal>
                         </div>
 
                         {/* RIGHT: Core Values/Process */}
                         <div className="space-y-6">
-                            <div className="glass-card p-8 group hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-black/5 border-black/5">
-                                <div className="w-12 h-12 rounded-xl bg-apple-accent/10 flex items-center justify-center mb-6 text-apple-accent">
-                                    <Play className="w-6 h-6 fill-current" />
-                                </div>
-                                <h3 className="text-2xl font-black text-black mb-3 italic tracking-tight">Clean Storytelling</h3>
-                                <p className="text-black/60 font-medium leading-relaxed text-base">
-                                    Smooth pacing, modern cuts, and cinematic flow designed explicitly for maximum audience retention and engagement.
-                                </p>
-                            </div>
-
-                            <div className="glass-card p-8 group hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-black/5 border-black/5">
-                                <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6 text-purple-600">
-                                    <Sparkles className="w-6 h-6 fill-current" />
-                                </div>
-                                <h3 className="text-2xl font-black text-black mb-3 italic tracking-tight">Motion Design</h3>
-                                <p className="text-black/60 font-medium leading-relaxed text-base">
-                                    Premium animations, custom typography, and high-end effects that instantly upgrade your content's production value.
-                                </p>
-                            </div>
-
-                            <div className="glass-card p-8 group hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-black/5 border-black/5">
-                                <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-6 text-green-600">
-                                    <Timer className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-2xl font-black text-black mb-3 italic tracking-tight">Fast Turnaround</h3>
-                                <p className="text-black/60 font-medium leading-relaxed text-base">
-                                    Predictable, fast turnarounds without compromising on quality. Professional communication and revision support at every step.
-                                </p>
-                            </div>
+                            {[
+                                { icon: <Play className="w-6 h-6 fill-current" />, color: "bg-apple-accent/10 text-apple-accent", title: "Clean Storytelling", text: "Smooth pacing, modern cuts, and cinematic flow designed explicitly for maximum audience retention and engagement.", delay: 100 },
+                                { icon: <Sparkles className="w-6 h-6 fill-current" />, color: "bg-purple-500/10 text-purple-600", title: "Motion Design", text: "Premium animations, custom typography, and high-end effects that instantly upgrade your content's production value.", delay: 250 },
+                                { icon: <Timer className="w-6 h-6" />, color: "bg-green-500/10 text-green-600", title: "Fast Turnaround", text: "Predictable, fast turnarounds without compromising on quality. Professional communication and revision support at every step.", delay: 400 },
+                            ].map((card, i) => (
+                                <ScrollReveal key={i} direction="right" delay={card.delay} distance={40} duration={800}>
+                                    <div className="glass-card p-8 group hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-black/5 border-black/5">
+                                        <div className={`w-12 h-12 rounded-xl ${card.color} flex items-center justify-center mb-6`}>
+                                            {card.icon}
+                                        </div>
+                                        <h3 className="text-2xl font-black text-black mb-3 italic tracking-tight">{card.title}</h3>
+                                        <p className="text-black/60 font-medium leading-relaxed text-base">
+                                            {card.text}
+                                        </p>
+                                    </div>
+                                </ScrollReveal>
+                            ))}
                         </div>
                     </div>
 
                     {/* Worked With - Creators & Brands */}
                     <div className="mt-32">
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-16 text-center md:text-left">
-                            <div>
-                                <h3 className="text-4xl md:text-5xl font-black text-black tracking-tighter mb-4">
-                                    Trusted by <br />
-                                    <span className="text-apple-accent italic font-serif opacity-80">Industry Leaders</span>
-                                </h3>
-                                <p className="text-black/40 text-lg font-medium max-w-xl">
-                                    Premium collaborations with high-growth creators and global brands.
-                                </p>
+                        <ScrollReveal direction="up" delay={0} distance={30}>
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-16 text-center md:text-left">
+                                <div>
+                                    <h3 className="text-4xl md:text-5xl font-black text-black tracking-tighter mb-4">
+                                        Trusted by <br />
+                                        <span className="text-apple-accent italic font-serif opacity-80">Industry Leaders</span>
+                                    </h3>
+                                    <p className="text-black/40 text-lg font-medium max-w-xl">
+                                        Premium collaborations with high-growth creators and global brands.
+                                    </p>
+                                </div>
+                                <div className="h-px flex-1 bg-black/5 mx-8 hidden md:block" />
                             </div>
-                            <div className="h-px flex-1 bg-black/5 mx-8 hidden md:block" />
-                        </div>
+                        </ScrollReveal>
 
                         <div className="mt-10 space-y-6">
-                            <div>
-                                <div className="worked-title mb-3">Creators</div>
-                                <div className="fade-wrap">
-                                    <MarqueeRow items={creators} speed={20} />
+                            <ScrollReveal direction="up" delay={100}>
+                                <div>
+                                    <div className="worked-title mb-3">Creators</div>
+                                    <div className="fade-wrap">
+                                        <MarqueeRow items={creators} speed={20} />
+                                    </div>
                                 </div>
-                            </div>
+                            </ScrollReveal>
 
-                            <div>
-                                <div className="worked-title mb-3">Brands</div>
-                                <div className="fade-wrap">
-                                    <MarqueeRow items={brands} speed={26} />
+                            <ScrollReveal direction="up" delay={200}>
+                                <div>
+                                    <div className="worked-title mb-3">Brands</div>
+                                    <div className="fade-wrap">
+                                        <MarqueeRow items={brands} speed={26} />
+                                    </div>
                                 </div>
-                            </div>
+                            </ScrollReveal>
                         </div>
                     </div>
                 </div>
@@ -131,7 +138,6 @@ const creators = [
 
 const brands = [
     { name: "Bcon Club", initial: "BC", image: "/brands/bcon-club.jpg" },
-    { name: "EditLobby", initial: "EL", image: "/brands/edit-lobby.jpg" },
     { name: "TBM Studioz", initial: "TB", image: "/brands/tbm-studioz.jpg" },
     { name: "Bird Box NYC", initial: "BB", image: "/brands/bird-box.jpg" },
     { name: "Oblum", initial: "OB", image: "/brands/oblum.jpg" },

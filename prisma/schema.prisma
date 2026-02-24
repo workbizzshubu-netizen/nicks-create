@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Enquiry {
+  id          String   @id @default(cuid())
+  name        String
+  phoneNumber String
+  email       String
+  solution    String
+  createdAt   DateTime @default(now())
+  read        Boolean  @default(false)
+}
+
+model Client {
+  id        String    @id @default(cuid())
+  name      String
+  email     String?
+  phone     String?
+  company   String?
+  status    String    @default("active")
+  notes     String    @default("")
+  createdAt DateTime  @default(now())
+  projects  Project[]
+}
+
+model Project {
+  id              String    @id @default(cuid())
+  title           String
+  billingMonth    String    @default("")   // e.g. "2026-02"
+  deadline        DateTime?
+  status          String    @default("ongoing")
+  advanceReceived Float     @default(0)
+  isFullyPaid     Boolean   @default(false)
+  clientId        String
+  createdAt       DateTime  @default(now())
+  client          Client    @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  tasks           Task[]
+}
+
+model Task {
+  id        String   @id @default(cuid())
+  title     String
+  price     Float    @default(0)
+  status    String   @default("pending")
+  projectId String
+  createdAt DateTime @default(now())
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import ScrollReveal from "./ScrollReveal";
 
 const testimonials = [
     { id: 1, image: "/testimonials/1.png" },
@@ -21,18 +22,20 @@ export default function Testimonial() {
         <section id="testimonials" className="py-24 px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Heading */}
-                <div className="text-center mb-16">
-                    <div className="flex items-center justify-center gap-2 mb-4">
-                        <span className="w-2 h-2 rounded-full bg-apple-text/20 animate-pulse"></span>
-                        <span className="text-apple-text/40 uppercase tracking-[0.2em] font-bold text-xs">Testimonials</span>
+                <ScrollReveal direction="up" delay={0} distance={25}>
+                    <div className="text-center mb-16">
+                        <div className="flex items-center justify-center gap-2 mb-4">
+                            <span className="w-2 h-2 rounded-full bg-apple-text/20 animate-pulse"></span>
+                            <span className="text-apple-text/40 uppercase tracking-[0.2em] font-bold text-xs">Testimonials</span>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-apple-text">
+                            Client <span className="text-apple-text/60 font-black">Success</span>
+                        </h2>
+                        <p className="text-apple-text/55 text-lg mt-4 max-w-2xl mx-auto">
+                            Real proof of growth and satisfaction from creators and brands sharing their experience.
+                        </p>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-black tracking-tight text-apple-text">
-                        Client <span className="text-apple-text/60 font-black">Success</span>
-                    </h2>
-                    <p className="text-apple-text/55 text-lg mt-4 max-w-2xl mx-auto">
-                        Real proof of growth and satisfaction from creators and brands sharing their experience.
-                    </p>
-                </div>
+                </ScrollReveal>
 
                 {/* Infinite Moving Row */}
                 <div className="marquee" style={{ ["--duration" as any]: `40s` }}>

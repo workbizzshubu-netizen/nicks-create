@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Pause, Volume2, VolumeX, Maximize, ExternalLink } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const featuredWorks = [
     { id: 1, title: "Cinematic Narrative", category: "Commercial", src: "/featured-work/work1.mp4" },
@@ -81,15 +82,17 @@ export default function Showreel() {
     return (
         <section id="showreel" className="py-24 px-6 bg-apple-surface">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col items-center mb-16">
-                    <div className="flex items-center gap-2 mb-4">
-                        <span className="w-2 h-2 rounded-full bg-apple-text/20 animate-pulse"></span>
-                        <span className="text-apple-text/40 uppercase tracking-[0.2em] font-bold text-xs">Showreel</span>
+                <ScrollReveal direction="up" delay={0} distance={25}>
+                    <div className="flex flex-col items-center mb-16">
+                        <div className="flex items-center gap-2 mb-4">
+                            <span className="w-2 h-2 rounded-full bg-apple-text/20 animate-pulse"></span>
+                            <span className="text-apple-text/40 uppercase tracking-[0.2em] font-bold text-xs">Showreel</span>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-center text-apple-text max-w-2xl leading-tight">
+                            Witness the <span className="text-apple-text/60">Cinematic</span> Standard
+                        </h2>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-black tracking-tight text-center text-apple-text max-w-2xl leading-tight">
-                        Witness the <span className="text-apple-text/60">Cinematic</span> Standard
-                    </h2>
-                </div>
+                </ScrollReveal>
 
                 {/* Main Showreel Player */}
                 <div
@@ -169,10 +172,12 @@ export default function Showreel() {
                         { label: "Brands", value: "20+" },
                         { label: "Views", value: "10M+" },
                     ].map((stat, i) => (
-                        <div key={i} className="text-center">
-                            <div className="text-3xl font-black text-apple-text">{stat.value}</div>
-                            <div className="text-[10px] uppercase tracking-[0.3em] text-apple-text/40 font-bold mt-1">{stat.label}</div>
-                        </div>
+                        <ScrollReveal key={i} direction="up" delay={i * 150} distance={20}>
+                            <div className="text-center">
+                                <div className="text-3xl font-black text-apple-text">{stat.value}</div>
+                                <div className="text-[10px] uppercase tracking-[0.3em] text-apple-text/40 font-bold mt-1">{stat.label}</div>
+                            </div>
+                        </ScrollReveal>
                     ))}
                 </div>
 

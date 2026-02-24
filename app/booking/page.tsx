@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, Instagram, ArrowRight, Sparkles, Wand2, Rocket, Phone } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 function BookingContent() {
     const searchParams = useSearchParams();

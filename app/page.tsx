@@ -2,13 +2,13 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/about";
+import About from "@/components/About";
 import Portfolio from "@/components/Portfolio";
 import Pricing from "@/components/Pricing";
-import Testimonial from "@/components/testimonial";
+import Testimonial from "@/components/Testimonial";
 import Contact from "@/components/Contact";
-import Footer from "@/components/footer";
-import Chatbot from "@/components/chatbot";
+import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 import Zoyi from "@/components/Zoyi";
 import Celebrities from "@/components/Celebrities";
 import Showreel from "@/components/Showreel";

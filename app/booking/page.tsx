@@ -15,9 +15,9 @@ function BookingContent() {
     const instagramId = "create.nicks";
 
     const messages = {
-        Simple: "Hi Nick! I'm interested in the Simple Plan (₹3,500). I'd like to get my video edited.",
-        Complex: "Hi Nick! I'm interested in the Complex Plan (₹6,200). I have a project that needs heavy motion graphics.",
-        Premium: "Hi Nick! I'm interested in the Premium Service (₹35,000+). I'd like to discuss a full-suite campaign.",
+        Simple: "Hi Nick! I'm interested in the Simple Plan. I'd like to get my video edited.",
+        Complex: "Hi Nick! I'm interested in the Complex Plan. I have a project that needs heavy motion graphics.",
+        Premium: "Hi Nick! I'm interested in the Premium Service. I'd like to discuss a full-suite campaign.",
         General: "Hi Nick! I'm interested in working with you on a video project."
     };
 
@@ -51,12 +51,9 @@ function BookingContent() {
                         first-come, first-serve basis. Join the waitlist or message us directly to lock in your project.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div className="flex items-center justify-center">
                         <Link href="#waitlist" className="bg-[#A78BFA] text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-[#A78BFA]/20 hover:scale-105 transition-transform w-full sm:w-auto">
                             Join Waitlist
-                        </Link>
-                        <Link href="/#pricing" className="bg-transparent border border-apple-border dark:border-white/10 text-apple-text/60 dark:text-dark-text/60 px-10 py-4 rounded-full font-bold hover:bg-apple-surface dark:hover:bg-dark-surface transition-colors w-full sm:w-auto">
-                            Browse Special Plans
                         </Link>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ export default function Footer() {
                         <ul className="space-y-3 text-black/50">
                             <li><a href="#work" className="hover:text-black transition-colors">Work</a></li>
                             <li><a href="#services" className="hover:text-black transition-colors">Services</a></li>
-                            <li><a href="#pricing" className="hover:text-black transition-colors">Pricing</a></li>
+
                             <li><a href="#contact" className="hover:text-black transition-colors">Contact</a></li>
                         </ul>
                     </div>
